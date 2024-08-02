@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monte seu pedido</title>
+    <link rel="stylesheet" href="/static/css/cardstyle.css">
+</head>
+<body>
+    <a class="avoltindex" href="{{ url_for('index') }}">
+        <div class="voltindex"><p>Página inicial</p></div>
+    </a>
+    <div class="box">
+        <h1>Monte seu pedido</h1>
+        <div class="multiprogress">
+            <div class="progressbg"></div>
+            <div class="progflex">
+                <div class="progressbar" id="progbar" style="width: 5%;"></div>
+            </div>
+            <div class="step">1</div>
+            <div class="step">2</div>
+            <div class="step">3</div>
+            <div class="step">4</div>
+        </div>
+        <form method="POST" action="/receber-pedido">
+            <div id="form1" class="form">
+                <div class="etapa">
+                    <h3>Prato principal e guarnição</h3>
+                    <div class="content-box">
+                        <label class="container">{{ op_onivora }}
+                            <input name="oponiv" value="{{op_onivora}}" type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="content-box">
+                        <label class="container">{{ op_veg }}
+                            <input value="{{ op_veg }}" name="opveg" type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="content-box">
+                        <label class="container">{{ guarnicao }}
+                            <input value="{{ guarnicao }}" name="guarnic" type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="btndiv">
+                    <button type="button" id="prox1">Próximo</button>
+                </div>
+            </div>
+            <div id="form2" class="form">
+                <div class="etapa">
+                    <h3>Escolha os acompanhamentos</h3>
+                </div>
+                <div class="content-box">
+                    <label class="container">{{ arrozb }}
+                        <input value="{{ arrozb }}" name="arrozb" type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                <div class="content-box">
+                    <label class="container">{{ feijao }}
+                        <input value="{{ feijao }}" name="feijao" type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                <div class="content-box">
+                    <label class="container">{{ arrozi }}
+                        <input value="{{ arrozi }}" name="arrozi" type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                <div class="btndiv">
+                    <button type="button" id="volt1">Voltar</button>
+                    <button type="button" id="prox2">Próximo</button>
+                </div>
+            </div>
+            <div id="form3" class="form">
+                <div class="etapa">
+                    <h3>Saladas</h3>
+                </div>
+                <div class="content-box">
+                    <label class="container">{{ salada1 }}
+                        <input value="{{ salada1 }}" name="salada1" type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                <div class="content-box">
+                    <label class="container">{{ salada2 }}
+                        <input value="{{ salada2 }}" name="salada2" type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                <div class="btndiv">
+                    <button type="button" id="volt2">Voltar</button>
+                    <button type="button" id="prox3">Próximo</button>
+                </div>
+            </div>
+            <div id="form4" class="form">
+                <div class="etapa">
+                    <h3>Por fim, deseja refresco?</h3>
+                    <div class="content-box">
+                        <label class="container">{{ refresco }}
+                            <input value="{{ refresco }}" name="refresco" type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="btndiv">
+                    <button type="button" id="volt3">Voltar</button>
+                    <button type="submit">Confirmar pedido</button>
+                </div>
+            </div>
+        </form>
+    </div>
+<script>
+    var form1 = document.getElementById("form1");
+    var form2 = document.getElementById("form2");
+    var form3 = document.getElementById("form3");
+    var form4 = document.getElementById("form4");
+
+    var prox1 = document.getElementById("prox1");
+    var prox2 = document.getElementById("prox2");
+    var prox3 = document.getElementById("prox3");
+    var volt1 = document.getElementById("volt1");
+    var volt2 = document.getElementById("volt2");
+    var volt3 = document.getElementById("volt3");
+
+    var progbar = document.getElementById("progbar");
+
+    prox1.onclick = function() {
+        form1.style.left = "-900px";
+        form2.style.left = "80px";
+        progbar.style.width = "25%";
+    }
+    prox2.onclick = function() {
+        form2.style.left = "-900px";
+        form3.style.left = "80px";
+        progbar.style.width = "47%";
+    }
+    prox3.onclick = function() {
+        form3.style.left = "-900px";
+        form4.style.left = "80px";
+        progbar.style.width = "69%";
+    }
+    volt1.onclick = function() {
+        form1.style.left = "80px";
+        form2.style.left = "900px";
+        progbar.style.width = "5%";
+    }
+    volt2.onclick = function() {
+        form2.style.left = "80px";
+        form3.style.left = "900px";
+        progbar.style.width = "25%";
+    }
+    volt3.onclick = function() {
+        form3.style.left = "80px";
+        form4.style.left = "900px";
+        progbar.style.width = "47%";
+    }
+
+function enviartudo(idForm) {
+    var form = document.getElementById(idForm);
+    form.submit();
+};
+
+document.getElementById('enviartudo').addEventListener('click', function() {
+    enviartudo('form1')
+    enviartudo('form2')
+});
+
+</script>
+</body>
+</html>

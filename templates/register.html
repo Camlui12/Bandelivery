@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Criar conta</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/">
+    <link href="static/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/register.css" rel="stylesheet">
+  </head>
+  <body class="text-center">
+    
+<main class="form-signin w-100 m-auto">
+  
+  <form method="POST" action="{{ url_for('criar_conta') }}">
+    <p style="color: red;">{{ mensagemCE }}</p>
+    <a href="/"><img class="mb-4" src="static\images\image 4.png" alt="logo do bandejao" width="225" height="87"></a>
+    <h1 class="h1 mb-3 fw-normal">Criar uma conta</h1>
+    <h5></h5>
+    <div class="form-floating">
+      <input name="nome" type="text" class="form-control" id="floatingInput" placeholder="Digite seu nome">
+      <label for="floatingInput">Digite seu nome</label>
+    </div>
+    <h5></h5>
+    <div class="form-floating">
+        <input name="matricula" type="text" class="form-control" id="floatingInput" placeholder="Digite sua matrícula">
+        <label for="floatingInput">Digite sua matrícula</label>
+    </div>
+    <h5></h5>
+    <div class="form-floating">
+        <input name="endereco" type="text" class="form-control" id="floatingInput" placeholder="Digite o endereço para entrega">
+        <label for="floatingInput">Digite o endereço para entrega</label>
+    </div>
+    <h5></h5>
+    <div class="form-floating">
+      <input name="senha" type="password" class="form-control" onchange="confereSenha();" id="floatingPassword" placeholder="Senha">
+      <label for="floatingPassword">Crie sua senha</label>
+    </div>
+    <div class="form-floating">
+        <input name="confirma" type="password" class="form-control" onchange="confereSenha();" id="floatingPassword" placeholder="Senha">
+        <label for="floatingPassword">Confirme sua senha</label>
+    </div>
+      <div class="form-floating">
+        
+        <select name="tipo" class="form-select" id="country" required>
+        <option selected disabled>Selecione seu perfil</option>
+          <option value="grad">Graduando</option>
+          <option value="func">Funcionário</option>
+          <option value="dout">Doutorando</option>
+        </select>
+    </div>
+
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Registrar-se</button>
+  </form>
+  <p class="mt-5 mb-3 text-muted">&copy; Todo os direitos reservados a UNIRIO</p>
+</main>
+<script>
+  function confereSenha(){
+    const senha = document.querySelector('input[name=senha]')
+    const confirma = document.querySelector('input[name=confirma]')
+
+    if (confirma.value === senha.value) {
+      confirma.setCustomValidity('');
+    } else {
+      confirma.setCustomValidity('As senhas não são iguais')
+    }
+  }
+</script>
+  </body>
+</html>

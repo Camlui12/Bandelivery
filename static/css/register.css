@@ -1,0 +1,55 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #132E53;
+}
+
+.form-signin {
+  max-width: 630px;
+  padding: 15px;
+}
+
+.form-select{
+  margin-bottom: 20px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="text"] {
+  margin-bottom: 20px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 20px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+/* Botão entrar */
+.btn-primary {
+  background-color: #0099CC;
+}
+
+.h1 {
+  color: #0099CC;
+}
+
+a {
+  color: #0099CC;
+}
+
+h5 {
+  color: white;
+}

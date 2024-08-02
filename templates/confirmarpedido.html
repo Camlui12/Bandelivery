@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmar pedido</title>
+    <link rel="stylesheet" href="/static/css/cardstyle.css">
+</head>
+<body>
+    <a class="avoltindex" href="{{ url_for('index') }}">
+        <div class="voltindex"><p>Página inicial</p></div>
+    </a>
+    <div class="box cent">
+        <h1>Seu pedido está Correto?</h1><br>
+        {% for item in pedido %}
+            <div class="itempedido">
+                <p >{{ item }}</p><br>
+            </div>
+        {% endfor %}
+
+        <a href="{{ url_for('cardapio') }}" class="abotao">
+            <div class="botao"><p>Corrigir</p></div>
+        </a>
+        <a href="{{ url_for('pagamento') }}" id="confpag" class="abotao">
+            <div class="botao"><p>Confirmar e pagar</p></div>
+        </a>
+    </div>
+</body>
+</html>

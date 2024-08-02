@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/">
+    <link href="/static/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/login.css" rel="stylesheet">
+  </head>
+  <body class="text-center">
+    
+<main class="form-signin w-100 m-auto">
+  <p style="color: red;">{{ mensagem }}</p>
+  <p style="color: #00cc22;">{{ mensagemreg }}</p>
+  <p style="color: red;">{{ mensagemCE }}</p>
+  <p style="color: red">{{ msgPedidoLogin }}</p>
+  <form method="POST" action="{{ url_for('autenticar') }}">
+    <a href="/"><img class="mb-4" src="static\images\image 4.png" alt="logo do bandejao" width="225" height="87"></a>
+    <h1 class="h1 mb-3 fw-normal">Entrar</h1>
+
+    <div class="form-floating">
+      <input name="matricula" type="text" class="form-control" id="floatingInput" placeholder="matricula">
+      <label for="floatingInput">Matrícula</label>
+    </div>
+    <div class="form-floating">
+      <input name="senha" type="password" class="form-control" id="floatingPassword" placeholder="senha">
+      <label for="floatingPassword">Senha</label>
+    </div>
+
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Entrar</button>
+  </form><br><br>
+  <a href="/register">Ainda não possui uma conta?</a>
+  <p class="mt-5 mb-3 text-muted">&copy; Todo os direitos reservados a UNIRIO</p>
+</main>
+
+    
+  </body>
+</html>
